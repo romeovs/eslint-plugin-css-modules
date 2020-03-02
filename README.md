@@ -1,12 +1,14 @@
-# **status: NOT MAINTAINED**
-I have moved on to using css-in-js libraries like styled-components and emotion.
-So, not working on this project.
+# @romeovs/eslint-plugin-css-modules
 
-# eslint-plugin-css-modules
+This is a clone of the great
+[`eslint-plugin-css-modules`](https://github.com/atfzl/eslint-plugin-css-modules)
+package, which sadly is no longer maintained.
+I'll be adding some features that I'm missing but am not planning to maintain it
+intensively.
 
-[![Build Status](https://travis-ci.org/atfzl/eslint-plugin-css-modules.svg?branch=master)](https://travis-ci.org/atfzl/eslint-plugin-css-modules)
-
-This plugin intends to help you in tracking down problems when you are using css-modules. It tells if you are using a non-existent css/scss/less class in js or if you forgot to use some classes which you declared in css/scss/less.
+This plugin intends to help you in tracking down problems when you are using
+css-modules. It tells if you are using a non-existent css/scss/less class in js
+or if you forgot to use some classes which you declared in css/scss/less.
 
 ## Rules
 
@@ -29,6 +31,14 @@ Add all such classes in the array.
 >If you use the `camelCase` option of `css-loader`, you must also enabled it for this plugin
 ```js
 /* eslint css-modules/no-undef-class: [2, { camelCase: true }] */
+```
+
+By default `css-modules/no-undef-class` detects the syntax (css vs scss) used by the
+stylesheets based on the file extention. If you want to override this set the
+`syntax` option to the preferred syntax:
+
+```json
+"css-modules/no-undef-class": [2, { "syntax": "scss" }]
 ```
 
 ## Installation
