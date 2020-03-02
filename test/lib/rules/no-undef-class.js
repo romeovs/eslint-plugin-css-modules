@@ -513,6 +513,22 @@ ruleTester.run('no-undef-class', rule, {
         'Class or exported property \'foo_baz\' not found',
       ],
     }),
+    test({
+      code: `
+        import s from './parentSelector1.css';
+
+        export default Foo = () => (
+          <div className={s.foo}>
+            <div className={s.foo_bar}></div>
+            <div className={s.foo_baz}></div>
+          </div>
+        );
+      `,
+      options: [{ syntax: 'scss' }],
+      errors: [
+        'Class or exported property \'foo_baz\' not found',
+      ],
+    }),
     /*
        should show errors for file that does not exist
      */
